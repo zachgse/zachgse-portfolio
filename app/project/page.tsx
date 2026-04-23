@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Project section of Zach's Portfolio",
 }; 
 
-const Project = async() => {[]
+const Project = () => {
     return (
         <Card>
             <Suspense fallback={<ProjectAllSkeleton/>}>

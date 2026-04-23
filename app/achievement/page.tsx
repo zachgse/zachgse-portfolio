@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import Card from "@/components/reusable/Card";
 import AchievementContent from "@/components/features/Achievement/AchievementContent";

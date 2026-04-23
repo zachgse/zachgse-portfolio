@@ -1,18 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/supabase/server";
 import type { Project } from "../route";
 
 export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
+  request: NextRequest,
+  context: { params: Promise<{ slug: string }> }
 ): Promise<NextResponse<Project | null>> {
-    const slug = await params;
+
+    const { slug } = await context.params; 
+
     const supabase = await createClient();
 
     const { data, error } = await supabase
         .from("projects")
         .select("*")
-        .eq("slug", slug.slug) 
+        .eq("slug", slug)
         .single();
 
     if (error) {

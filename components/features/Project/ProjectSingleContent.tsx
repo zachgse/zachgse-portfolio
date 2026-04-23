@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Project } from "@/app/project/actions";
 import { ArrowLeft, Book, Images } from "lucide-react";
+import type { Project } from "@/app/api/projects/route";
 
 const ProjectSingleContent = ({project}:{project:Project|null}) => {
     return (

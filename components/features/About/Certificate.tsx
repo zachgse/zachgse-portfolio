@@ -5,7 +5,7 @@ import { Award, Calendar, ExternalLink } from "lucide-react";
 import type { Certificate } from "@/app/api/certificates/route";
 
 const Certificate = async() => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/certificates?type=limit`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/certificates`, {
         next: { revalidate: 3600 },
     });
     const certificates = await response.json();

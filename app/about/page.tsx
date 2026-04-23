@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Card from "@/components/reusable/Card";
 import Contact from "@/components/features/Contact";
 import Me from "@/components/features/About/Me";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "About section of Zach's Portfolio",
 };  
 
-export default async function About() {
+const About = () => {
     return (
         <div className="flex lg:flex-row flex-col gap-8">
             <div className="flex flex-col lg:w-2/3 gap-4"> 
@@ -44,3 +44,5 @@ export default async function About() {
         </div>
     );
 }
+
+export default About;

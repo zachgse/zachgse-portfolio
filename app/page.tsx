@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Portfolio of Zach Estrella",
 };  
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="flex lg:flex-row flex-col gap-8">
       <div className="flex flex-col lg:w-2/3 gap-4"> 
@@ -36,3 +36,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
