@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 import Sidebar from "@/components/features/Sidebar";
 import Card from "@/components/reusable/Card";
 
-export const revalidate = 300;
-
 const Toggled = () => {
   const router = useRouter();
   const [isMobile, setIsMobile] = React.useState(false);
