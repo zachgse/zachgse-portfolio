@@ -2,13 +2,11 @@ import Link from "next/link";
 import Button from "@/components/reusable/Button";
 import { formatDate } from "@/utils/helper";
 import { Award, Calendar, ExternalLink } from "lucide-react";
-import type { Certificate } from "@/app/api/certificates/route";
+import { cachedFetch } from "@/supabase/custom";
+import { CertificationType } from "@/utils/types";
 
 const AchievementContent = async() => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/certificates`, {
-        next: { revalidate: 3600 },
-    });
-    const achievements = await response.json();
+    const achievements = await cachedFetch("certifications");
 
     return (
         <div className="w-full flex flex-col gap-3">
@@ -18,7 +16,7 @@ const AchievementContent = async() => {
             </div>
             
             <div className="grid md:grid-cols-4 grid-cols-2 gap-8">
-                {achievements.map((achievement:Certificate) => (
+                {achievements.map((achievement:CertificationType) => (
                     <div key={achievement.id} className="lg:col-span-1 md:col-span-2 col-span-4 flex flex-col gap-2 text-center group">
                         <div className="border border-gray-300 dark:border-[#212121] relative overflow-hidden rounded-lg">
                             <img src={achievement.image} alt={`${achievement.title} certificate preview`} className="w-full h-60 rounded-lg"/>

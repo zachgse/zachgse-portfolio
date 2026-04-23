@@ -4,6 +4,7 @@ import Card from "@/components/reusable/Card";
 import Error from "@/components/reusable/Error";
 import ProjectSingleSkeleton from "@/components/skeleton/ProjectSingleSkeleton";
 import ProjectSingleContent from "@/components/features/Project/ProjectSingleContent";
+import { cachedFetch } from "@/supabase/custom";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } }
@@ -18,10 +19,8 @@ export async function generateMetadata(
 
 const ProjectSlug = async({params}:{params:{slug:string}}) => {
     const slug = await params;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/projects/${slug.slug}`, {
-        next: { revalidate: 3600 },
-    });
-    const project = await response.json();
+    const projects = await cachedFetch(`projects?slug=eq.${await slug.slug}&limit=1`);
+    const project = projects?.[0] ?? null;
 
     if (!slug || !project) return <Error/>
 

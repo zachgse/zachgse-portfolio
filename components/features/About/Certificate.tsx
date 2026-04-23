@@ -2,13 +2,11 @@ import Link from "next/link";
 import Button from "@/components/reusable/Button";
 import { formatDate } from "@/utils/helper";
 import { Award, Calendar, ExternalLink } from "lucide-react";
-import type { Certificate } from "@/app/api/certificates/route";
+import { cachedFetch } from "@/supabase/custom";
+import type { CertificationType } from "@/utils/types";
 
 const Certificate = async() => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/certificates`, {
-        next: { revalidate: 3600 },
-    });
-    const certificates = await response.json();
+    const certificates = await cachedFetch("certifications?limit=4")
 
     return (
         <div className="w-full flex flex-col gap-3">
@@ -17,7 +15,7 @@ const Certificate = async() => {
                 <p className="font-bold text-2xl">Certifications</p>
             </div>
             <div className="flex flex-col gap-4">
-                {certificates.map((certificate:Certificate) => (
+                {certificates.map((certificate:CertificationType) => (
                 <div key={certificate.id} className="w-full flex gap-4"> 
                     <div className="flex flex-1 gap-4">
                         <img src={certificate.icon} alt={`${certificate.issuer} icon`} className="w-16 h-16"/>

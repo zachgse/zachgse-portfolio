@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowLeft, Book, Images } from "lucide-react";
-import type { Project } from "@/app/api/projects/route";
+import { ProjectType } from "@/utils/types";
 
-const ProjectSingleContent = ({project}:{project:Project|null}) => {
+const ProjectSingleContent = ({project}:{project:ProjectType|null}) => {
     return (
         <>
             <Link href="/project">
