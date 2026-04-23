@@ -7,7 +7,7 @@ const Expertise = () => {
         {
             question: "Web Development",
             answer:
-                "I specialize in backend development using PHP (Laravel), building secure, scalable, and well-structured systems. On the frontend, I develop responsive interfaces using HTML, CSS, and JavaScript, and I am currently deepening my expertise in React with TypeScript.I focus on clean architecture, RESTful API design, and strengthening core backend and frontend fundamentals to build maintainable, high-performance applications.",
+                "Full-stack developer with 3+ years of experience building scalable web applications, with a strong backend focus using PHP (Laravel). Experienced in designing RESTful APIs and implementing performance-driven solutions such as Redis caching, rate limiting, and JWT-based authentication. On the frontend, I use Next.js, React, and TypeScript to create responsive, maintainable, and high-performing user interfaces, with an emphasis on clean architecture and seamless system integration.",
         },
         {
             question: "Database Management",

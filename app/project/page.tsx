@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     description: "Project section of Zach's Portfolio",
 }; 
 
+export const revalidate = 300;
+
 const Project = async() => {
     const supabase = await createClient();
     const { data:projects } = await supabase.from("projects").select("*").order("created_at",{ascending:false});

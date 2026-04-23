@@ -16,6 +16,8 @@ export async function generateMetadata(
     };
 }
 
+export const revalidate = 300;
+
 const ProjectSlug = async({params}:{params:{slug:string}}) => {
     const slug = await params;
     const supabase = await createClient();

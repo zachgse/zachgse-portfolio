@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     description: "Achievement section of Zach's Portfolio",
 }; 
 
+export const revalidate = 300;
+
 const Achievement = async() => {
     const supabase = await createClient();
     const { data:achievements,error } = await supabase

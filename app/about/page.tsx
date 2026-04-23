@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     description: "About section of Zach's Portfolio",
 };  
 
+export const revalidate = 300;
+
 const About = async() => {
     const supabase = await createClient();
     const { data:certificates,error } = await supabase

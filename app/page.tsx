@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Portfolio of Zach Estrella",
 };  
 
+export const revalidate = 300;
+
 export default async function Home() {
   const supabase = await createClient();
   const { count:projectCount } = await supabase
