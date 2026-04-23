@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { fetchSingleProject } from "../actions";
 import Card from "@/components/reusable/Card";
 import Error from "@/components/reusable/Error";
 import ProjectSingleSkeleton from "@/components/skeleton/ProjectSingleSkeleton";
@@ -19,14 +18,17 @@ export async function generateMetadata(
 
 const ProjectSlug = async({params}:{params:{slug:string}}) => {
     const slug = await params;
-    const data = await fetchSingleProject(slug.slug);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/projects/${slug.slug}`, {
+        next: { revalidate: 3600 },
+    });
+    const project = await response.json();
 
-    if (!slug || !data.status || !data.project) return <Error/>
+    if (!slug || !project) return <Error/>
 
     return (
         <Card className="w-full flex flex-col gap-3">
             <Suspense fallback={<ProjectSingleSkeleton/>}>
-                <ProjectSingleContent project={data.project ?? undefined}/>
+                <ProjectSingleContent project={project}/>
             </Suspense>
         </Card>
     )

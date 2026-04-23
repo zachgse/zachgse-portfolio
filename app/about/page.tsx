@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "About section of Zach's Portfolio",
 };  
 
-const About = () => {
+export default async function About() {
     return (
         <div className="flex lg:flex-row flex-col gap-8">
             <div className="flex flex-col lg:w-2/3 gap-4"> 
@@ -44,5 +44,3 @@ const About = () => {
         </div>
     );
 }
-
-export default About;

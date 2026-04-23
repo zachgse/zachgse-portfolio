@@ -1,34 +1,30 @@
 "use client"
+import useSWR from "swr";
 import CountUp from "react-countup";
 import Icon from "@/components/reusable/Icon";
 import { Award, ChartSpline, Clock, Code, Folder } from "lucide-react";
 import { supabase } from "@/supabase/client";
-import React from "react";
 import CareerSkeleton from "@/components/skeleton/CareerSkeleton";
 
+const fetchProjectCount = async() => {
+    const { count } = await supabase
+                        .from("projects")
+                        .select("*", { count: "exact", head: true });
+    return count;
+}
+
+const fetchCertCount = async() => {
+    const { count } = await supabase
+                        .from("certifications")
+                        .select("*", { count: "exact", head: true });
+    return count;
+}
+
 const CareerStats = () => {
-    const [loading,setLoading] = React.useState<boolean>(false);
-    const [projectCount,setProjectCount] = React.useState<number>();
-    const [certCount,setCertCount] = React.useState<number>();
+    const { data:projectCount,isLoading:isProjectLoading } = useSWR("projects",fetchProjectCount);
+    const { data:certCount,isLoading:isCertLoading } = useSWR("projects",fetchCertCount);
 
-    React.useEffect(() => {
-        const fetchData = async() => {
-            setLoading(true);
-            const { count:projectCount } = await supabase
-                                                .from("projects")
-                                                .select("*", { count: "exact", head: true });
-            const { count:certCount } = await supabase
-                                                .from("certifications")
-                                                .select("*", { count: "exact", head: true });
-            setProjectCount(projectCount ?? 0);
-            setCertCount(certCount ?? 0);
-
-            setLoading(false);
-        }
-        fetchData();
-    }, [])
-
-    if (loading) return <CareerSkeleton/>
+    if (isProjectLoading || isCertLoading) return <CareerSkeleton/>
 
     return (
         <div className="flex flex-col gap-3">

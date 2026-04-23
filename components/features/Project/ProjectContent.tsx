@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { formatDate } from "@/utils/helper";
 import { Book, Folder } from "lucide-react";
-import { fetchAllProjects } from "@/app/project/actions";
+import type { Project } from "@/app/api/projects/route";
 
 const ProjectContent = async() => {
-    const projects = await fetchAllProjects();
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/projects`, {
+        next: { revalidate: 3600 },
+    });
+    const projects = await response.json();
     return (
         <div className="w-full flex flex-col gap-3">
             <div className="flex items-center gap-2">
@@ -13,7 +16,7 @@ const ProjectContent = async() => {
             </div>
             <div className="grid md:grid-cols-3 grid-cols-2 gap-4">
                 {projects.length > 0 && (
-                    projects.map((project) => (
+                    projects.map((project:Project) => (
                         <Link href={`/project/${project.slug}`} key={project.id} 
                             className="col-span-1 border border-gray-300 dark:border-[#313131] dark:bg-[#313131] rounded-lg flex items-start gap-4 p-4 hover:border-info hover:text-info cursor-pointer">
                             <Book size={16} className="mt-1"/>

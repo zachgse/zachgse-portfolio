@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Project } from "@/app/project/actions";
 import { ArrowLeft, Book, Images } from "lucide-react";
 
-const ProjectSingleContent = ({project}:{project:Project|undefined}) => {
+const ProjectSingleContent = ({project}:{project:Project|null}) => {
     return (
         <>
             <Link href="/project">
