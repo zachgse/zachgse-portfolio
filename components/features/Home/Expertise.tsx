@@ -12,17 +12,17 @@ const Expertise = () => {
         {
             question: "Database Management",
             answer:
-                "I primarily work with SQL databases (MySQL, PostgreSQL, SQLite), leveraging optimized queries and efficient data modeling to maintain performance in fast-paced development environments. I also have working knowledge of NoSQL databases such as MongoDB.",
+                "I primarily work with SQL databases including MySQL, PostgreSQL, and SQLite, focusing on optimized queries, indexing, and efficient data modeling to ensure consistent performance in fast-paced environments. I also have working knowledge of NoSQL databases such as MongoDB, allowing me to handle flexible and unstructured data when needed.",
         },
         {
             question: "UI/UX Design",
             answer:
-                "I design intuitive and engaging user interfaces with a strong focus on usability and aesthetics using Figma and WordPress, creating user-centered experiences across all devices.",
+                "I design intuitive, user-centered interfaces with a strong focus on usability and visual clarity, creating consistent and engaging experiences across devices. I use tools like Figma and WordPress to translate ideas into practical, well-structured designs.",
         },
         {
             question: "Development Tools",
             answer:
-                "I utilize tools like GitHub, Bitbucket, Jira, Postman, and VS Code for effective version control, collaboration, testing, and development workflow optimization.",
+                "I use tools such as GitHub, Bitbucket, Jira, Postman, and VS Code to manage version control, streamline collaboration, test APIs, and maintain efficient development workflows.",
         }
     ];
     const [openIndex,setOpenIndex] = React.useState<number|null>()

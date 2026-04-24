@@ -13,10 +13,13 @@ const Description = () => {
                 <p className="font-bold text-2xl">About</p>
             </div>
             <p className={clsx(!expanded && "lg:line-clamp-3 line-clamp-6")}>
-                Full-Stack Web Developer primarily focused on backend development using PHP (Laravel), building secure, scalable systems with clean architecture principles. Experienced in designing and integrating RESTful APIs while ensuring efficient data flow and application performance.
-                Strong foundation in SQL databases, leveraging optimized queries, indexing, and structured data modeling to maintain reliability in fast-paced development environments. Also knowledgeable in NoSQL databases such as MongoDB.
-                On the frontend, I develop responsive interfaces using HTML, CSS, and JavaScript, and I am currently deepening my expertise in React with TypeScript to strengthen modern, type-safe frontend development.
-                Passionate about mastering core backend fundamentals, system design, and performance optimization to deliver maintainable, high-quality applications.
+                Full-Stack Web Developer with 3 years of professional experience specializing in backend development using PHP (Laravel). I build secure, scalable systems with a strong emphasis on clean architecture, efficient data flow, and performance optimization.
+                <br/>
+                Experienced in designing and integrating RESTful APIs, as well as working with SQL databases through optimized queries, indexing, and structured data modeling. I also have exposure to NoSQL solutions such as MongoDB for flexible data handling.
+                <br/>
+                Beyond my core backend expertise, I’ve expanded into modern full-stack development—working with React, TypeScript, and Next.js to create responsive, type-safe frontend applications. I’ve also explored backend performance strategies, including caching with Redis and rate limiting, to improve system reliability at scale.
+                <br/>
+                I’m driven by a deep interest in system design, backend fundamentals, and building maintainable applications that perform efficiently in real-world environments.
             </p>
             <div onClick={() => setExpanded(prev=>!prev)}
                 className="text-center text-info cursor-pointer hover:underline text-sm">
