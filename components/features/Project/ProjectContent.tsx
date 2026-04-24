@@ -5,8 +5,8 @@ import { cachedFetch } from "@/supabase/custom";
 import { ProjectType } from "@/utils/types";
 
 const ProjectContent = async() => {
-    const projects = await cachedFetch("projects");
-    
+    const projects = await cachedFetch("projects?order=developed_at.desc");
+    // 
     return (
         <div className="w-full flex flex-col gap-3">
             <div className="flex items-center gap-2">
