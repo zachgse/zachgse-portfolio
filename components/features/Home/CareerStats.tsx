@@ -22,7 +22,7 @@ const fetchCertCount = async() => {
 
 const CareerStats = () => {
     const { data:projectCount,isLoading:isProjectLoading } = useSWR("projects",fetchProjectCount);
-    const { data:certCount,isLoading:isCertLoading } = useSWR("projects",fetchCertCount);
+    const { data:certCount,isLoading:isCertLoading } = useSWR("certifications",fetchCertCount);
 
     if (isProjectLoading || isCertLoading) return <CareerSkeleton/>
 
