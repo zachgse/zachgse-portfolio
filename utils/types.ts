@@ -22,4 +22,6 @@ export type ProjectType = {
     }[]
     is_active: boolean
     developed_at: string
+    preview_url?: string
+    github_url?: string
 }

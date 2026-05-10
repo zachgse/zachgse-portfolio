@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, Book, Images } from "lucide-react";
+import { ArrowLeft, Book, Images, TvMinimalPlay } from "lucide-react";
 import { ProjectType } from "@/utils/types";
+import Button from "@/components/reusable/Button";
+import { FaGithub } from "react-icons/fa";
 
 const ProjectSingleContent = ({project}:{project:ProjectType|null}) => {
     return (
@@ -11,6 +13,24 @@ const ProjectSingleContent = ({project}:{project:ProjectType|null}) => {
             <div className="flex items-center gap-2">
                 <Book size={20}/>
                 <p className="font-bold text-2xl">{project?.name}</p>
+                <div className="ms-auto flex gap-2">
+                    {project?.preview_url && (
+                    <a href={project.preview_url} target="_blank">
+                        <Button type="primary">
+                            <TvMinimalPlay size={16}/>
+                            Preview
+                        </Button>
+                    </a>
+                    )}
+                    {project?.github_url && (
+                        <a href={project.github_url} target="_blank">
+                            <Button type="secondary" className="h-10 px-4">
+                                <FaGithub size={16}/>
+                                Github
+                            </Button>
+                        </a>
+                    )}
+                </div>
             </div>
             <div className="flex flex-wrap gap-2">
                 {project?.tags.map((tag:{tag:string},index:number) => (
