@@ -25,3 +25,8 @@ export type ProjectType = {
     preview_url?: string
     github_url?: string
 }
+
+export type Chat = {
+    role: "user" | "model"
+    message: string
+}
