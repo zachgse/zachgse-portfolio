@@ -14,8 +14,7 @@ type Inputs = {
 const Chatbot = () => {
     const [isOpen,setIsOpen] = React.useState<boolean>(false);
     const [history,setHistory] = React.useState<Chat[]>([
-        {role:"model",message:"Hello this is Zach Estrella. Ask your inquiries here regarding my portfolio."},
-        {role:"user",message:"What is your name?"}
+        {role:"model",message:"Hello this is Zach Estrella. Ask your inquiries here regarding my portfolio."}
     ]);
     const [isPending,startTransition] = React.useTransition();
     const bottomRef = React.useRef<HTMLDivElement|null>(null);
