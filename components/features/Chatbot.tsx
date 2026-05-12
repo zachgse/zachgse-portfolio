@@ -51,7 +51,7 @@ const Chatbot = () => {
 
     return (
         <div onClick={() => setIsOpen(prev=>!prev)}
-            className="lg:absolute fixed lg:bottom-8 bottom-24 right-4 z-50 bg-info text-white rounded-full h-12 w-12 flex items-center justify-center cursor-pointer">
+            className="fixed lg:bottom-8 bottom-24 right-4 z-50 bg-info text-white rounded-full h-12 w-12 flex items-center justify-center cursor-pointer">
             <MessageCircleMore />
             {isOpen && (
                 <div onClick={(e)=>e.stopPropagation()}
