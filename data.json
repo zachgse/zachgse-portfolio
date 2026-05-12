@@ -1,0 +1,66 @@
+[
+    {
+        "type":"general",
+        "text":"Zach Estrella graduated from De La Salle–College of Saint Benilde in October 2022 with a degree in Information Systems. He is a software developer with a foundation in both backend and full stack development, continuously expanding into modern and emerging technologies.",
+        "embeddings":[]
+    },
+    {
+        "type":"general",
+        "text":"Zach Estrella accepts commissions and sideline projects. He is also actively looking for work. Kindly send an email to zachgabriel.estrella@gmail.com for more information. Thank you"
+    },
+    {
+        "type":"experience",
+        "text":"He has 3 years of experience in PHP and Laravel at Ziaplex Inc., where he worked on 5+ web-based projects as a lead developer. He contributed to over 10 internal systems across the company, including web-based applications, APIs for mobile systems, and internal enterprise tools. His responsibilities included refactoring and maintaining legacy systems, improving code quality, and participating in code reviews and mentorship within the development team.",
+        "embeddings":[]
+    },
+    {
+        "type":"experience",   
+        "text":"He has 1 year of experience in full stack development through self-learning and project-based exposure. His primary technologies include React and Next.js, where he built personal projects focused on improving frontend and full stack development skills through hands-on implementation and experimentation.",
+        "embeddings":[]
+    },
+    {
+        "type":"experience",   
+        "text":"He is currently transitioning into AI engineering, actively studying artificial intelligence and automation. His goal is to apply AI in real-world systems and leverage modern tools to build intelligent and automated applications, aligning his skills with current industry trends and emerging technologies.",
+        "embeddings":[]
+    },
+    {
+        "type":"experience",   
+        "text":"Zach Estrella has experience in backend development using PHP and Java, with strong proficiency in PHP and Laravel-based systems. He also has foundational knowledge of Python, Java, and Vue.js, with an estimated proficiency level of around 5–6 out of 10. For frontend development, he is skilled in HTML, CSS, JavaScript, TypeScript, React, Next.js, and Bootstrap, with hands-on experience building responsive web applications and full stack projects. He also has experience working with databases and backend tools such as MySQL and Supabase, as well as version control and collaboration tools like GitHub, Bitbucket, and Jira. Additionally, he has exposure to CMS platforms such as WordPress.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"NAOS Esports is a WordPress-based website project where Zach Estrella was responsible for maintaining and enhancing an existing system originally developed by previous developers. His contributions focused on CMS content management, updating and maintaining site content, and creating new pages based on client requirements. A major part of his work involved improving mobile responsiveness across multiple pages, ensuring the website provided a consistent and accessible user experience across different screen sizes and devices. This included front-end layout adjustments, UI refinements, and responsiveness fixes. The project emphasized iterative development, maintenance work, and client-driven enhancements rather than building the system from scratch.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"Freelancy is a full-stack freelance marketplace platform developed by Zach Estrella using Laravel 9 and Vue 3. The application was designed to connect clients and freelancers through a project and proposal management system, allowing clients to post projects, review freelancer proposals, and manage hired work, while freelancers can submit proposals, track project progress, and mark completed tasks. The platform includes real-time private messaging functionality implemented using Laravel Echo and Pusher, enabling live communication between users. Additional features include live search and filtering using Lodash debounce, a user profile management system, secure JWT-based stateless authentication, and role-based access control for different user types. On the frontend, the project utilizes Vue 3, Tailwind CSS, JavaScript, and CSS to build a responsive and modern user interface. Pinia was used for global state management, while Axios handled API communication between the frontend and backend systems. The backend was developed using PHP and Laravel 9 with a RESTful API architecture connected to a MySQL database. PHPUnit was also implemented for testing important backend functionalities and maintaining application reliability.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"Sociably is a full-stack MERN-based social media application inspired by Facebook, developed by Zach Estrella as a sample project focused on real-time social interactions and modern web application architecture. The platform allows users to create posts with image uploads and previews, interact through likes and comments, and engage with comment likes and modal-based post viewing similar to Facebook’s user experience. The application implements real-time updates using WebSocket communication through Socket.IO, enabling live synchronization for post creation, likes, comments, and comment likes across connected users. Authentication and security features include JWT-based authentication and Google OAuth2 integration, utilizing short-lived access tokens stored in memory and long-lived refresh tokens stored in HttpOnly cookies for improved security practices. On the frontend, the project was built using React.js, JavaScript, Tailwind CSS, TanStack React Query, React Hook Form, and Axios to create a responsive and dynamic user experience with efficient state and API handling. The backend was developed using Node.js, Express.js, and MongoDB with REST API architecture. Additional backend tools and libraries include bcryptjs for password hashing, multer for image upload handling, and google-auth-library for OAuth authentication integration. This project was developed as a learning and portfolio project to strengthen experience in MERN stack development, real-time systems, authentication flows, and scalable social media application features. The project is inspired by existing social media platforms, and all copyrights belong to their respective owners.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"Zach Estrella developed a high-performance full-stack e-commerce platform designed with scalable architecture, secure authentication, and optimized transaction handling. The system implements role-based access control (RBAC) and token-based authentication using Laravel Sanctum to manage secure user access and authorization flows. The backend was developed using Laravel 10, MySQL, Redis, and REST API architecture, following a repository-service pattern to improve maintainability and scalability. Redis caching was integrated using Docker to optimize backend performance and reduce response times for frequently accessed data. The platform includes advanced e-commerce functionalities such as checkout session generation, webhook-based payment synchronization, and real-time payment status notifications using WebSocket communication. Payment processing integration was implemented through the PayMongo API to support secure online transactions and automated payment updates. On the frontend, the application was built using React.js, TypeScript, Tailwind CSS, Redux, Vite, JavaScript, and NPM to create a fast and interactive shopping experience. Features include lazy loading, optimized cart computations, dynamic product listings, responsive user interfaces, and user-specific dashboards. The project was designed with performance optimization and scalability in mind, supporting modern e-commerce workflows and architecture patterns suitable for high-traffic applications.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"Sublime is a modern web application developed by Zach Estrella for Sublime Cafe using Next.js, Supabase, TypeScript, Tailwind CSS, and Vite. The platform was designed with a scalable CMS-oriented architecture to manage products, menu items, and website content efficiently for both administrators and customers. The application integrates Supabase for authentication, database management, and backend services, providing secure user handling and structured data management. It also utilizes S3-like object storage functionality for handling media and image uploads within the platform. On the frontend, the project was built using modern React and Next.js development practices with responsive UI implementation using Tailwind CSS and Radix UI components. The interface was designed to provide a polished and seamless user experience across different devices and screen sizes. The project demonstrates experience in modern full stack web development, CMS architecture design, cloud-based backend services, and responsive frontend engineering using contemporary React ecosystem tools.",
+        "embeddings":[]
+    },
+    {
+        "type":"project",   
+        "text":"Resume Analyzer is an AI-powered web application developed by Zach Estrella that helps users optimize and improve resumes for specific job applications. The platform allows users to upload their current CV, provide a target job title and job description, and receive AI-generated feedback, ATS-friendly resume improvements, and downloadable revised resume outputs. The application integrates Large Language Model (LLM) capabilities through the Google Gemini API to analyze resume content, generate contextual recommendations, and assist users in tailoring resumes based on job requirements. It also includes an interactive AI chat system that supports continued resume refinement, revision suggestions, and career-related guidance through conversational interactions. The frontend and application architecture were built using Next.js, React, TypeScript, and Tailwind CSS, focusing on responsive user experience and modern frontend development practices. Puppeteer was implemented for dynamic PDF generation, enabling users to export professionally formatted revised resumes directly from the application. This project demonstrates practical experience in AI engineering, prompt-driven application development, LLM integration, document processing workflows, and building AI-assisted productivity tools using modern web technologies.",
+        "embeddings":[]
+    },
+    {
+        "type":"license",   
+        "text":"Zach Estrella has completed multiple online certifications and technical learning programs focused on software engineering, backend development, cloud computing, APIs, databases, and programming fundamentals. These include CS50’s Introduction to Computer Science from Harvard University, the Meta Back-End Developer Specialization, AWS Knowledge: Cloud Essentials, REST API Intermediate, Software Engineer, SQL certifications, Java certification, Python Essentials, and Foundational C# with Microsoft. These certifications reflect continuous self-learning and ongoing professional development across backend engineering, full stack development, cloud technologies, database systems, and programming languages including Python, Java, SQL, and C#.",
+        "embeddings":[]
+    }
+]
