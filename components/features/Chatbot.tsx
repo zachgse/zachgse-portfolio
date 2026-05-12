@@ -38,7 +38,7 @@ const Chatbot = () => {
         setHistory(prev=>[...prev,newMessage]);
         startTransition(async()=>{
             await new Promise(resolve=>setTimeout(resolve,1000));
-            const modelMessage = formatMessage({role:"model",message:"Thank you for asking"});
+            const modelMessage = formatMessage({role:"model",message:"This feature is currently under construction."});
             setHistory(prev=>[...prev,modelMessage]);
         });
     }
