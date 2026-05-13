@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import GradPic from "@/public/assets/img/grad.jpeg"
+import GradPic from "@/public/assets/img/grad.png"
 import Button from "../reusable/Button";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -14,11 +14,14 @@ const Sidebar = () => {
 
     return (
         <div className="h-full flex flex-col gap-4">
-            <div className="w-32 h-32 overflow-hidden rounded-full mx-auto">
-                <Image src={GradPic}
+            <div className="w-32 h-32 relative overflow-hidden rounded-full mx-auto">
+                <Image
+                    src={GradPic}
                     alt="Zach Estrella"
-                    className="w-full h-full object-cover object-top scale-120 origin-top"
-                    loading="eager"/>
+                    fill
+                    className="object-cover object-top scale-100"
+                    priority
+                />
             </div>
             <div className="text-center">
                 <p className="font-bold text-center text-2xl">Zach Estrella</p>

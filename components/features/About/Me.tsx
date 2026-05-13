@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GradPic from "@/public/assets/img/grad.jpeg"
+import GradPic from "@/public/assets/img/grad.png"
 import Button from "@/components/reusable/Button";
 import { Send } from "lucide-react";
 
