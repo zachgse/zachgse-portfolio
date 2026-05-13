@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 import Card from "@/components/reusable/Card";
 import Error from "@/components/reusable/Error";
-import ProjectSingleSkeleton from "@/components/skeleton/ProjectSingleSkeleton";
 import ProjectSingleContent from "@/components/features/Project/ProjectSingleContent";
 import { cachedFetch } from "@/supabase/custom";
 
@@ -26,9 +24,7 @@ const ProjectSlug = async({params}:{params:{slug:string}}) => {
 
     return (
         <Card className="w-full flex flex-col gap-3">
-            <Suspense fallback={<ProjectSingleSkeleton/>}>
-                <ProjectSingleContent project={project}/>
-            </Suspense>
+            <ProjectSingleContent project={project}/>
         </Card>
     )
 }
