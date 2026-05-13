@@ -69,7 +69,7 @@ const Chatbot = () => {
             {isOpen && (
                 <div onClick={(e)=>e.stopPropagation()}
                     className="absolute bottom-12 right-2 bg-white dark:bg-[#212121] border border-gray-300 dark:border-[#212121] rounded-lg 
-                            w-96 h-[500px] text-black dark:text-white px-4 pt-6 pb-4 cursor-default">
+                            md:w-96 w-[342px] md:h-[500px] h-[450px] text-black dark:text-white px-4 pt-6 pb-4 cursor-default">
                     <div onClick={()=>setIsOpen(false)} className="absolute top-2 right-2">
                             <CircleX className="text-black dark:text-white cursor-pointer" size={18}/>
                     </div>
@@ -131,7 +131,7 @@ const Chatbot = () => {
                     </form>
                     )}
                     {!error && (
-                        <p className="absolute bottom-1 left-24 text-gray-500 text-[10px]">AI-powered chatbot through Google Gemini</p>
+                        <p className="w-full absolute bottom-1 text-center text-gray-500 text-[10px]">AI-powered chatbot with Google Gemini</p>
                     )}
                 </div>
             )}
