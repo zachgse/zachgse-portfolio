@@ -17,10 +17,12 @@ const Me = () => {
             </div>
             <div className="absolute md:bottom-10 bottom-6 md:left-56 left-44 flex flex-col gap-2">
                 <p className="font-bold text-2xl">Zach Estrella</p>
-                <Button type="primary">
-                    <Send size={16}/>
-                    Message
-                </Button>
+                <a href="mailto:zachgabriel.estrella@gmail.com">
+                    <Button type="primary">
+                        <Send size={16}/>
+                        Message
+                    </Button>
+                </a>
             </div>
         </>
     )
