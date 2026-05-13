@@ -1,4 +1,5 @@
 "use client"
+import { generateAugmentedRetrieval } from "@/utils/chat";
 import { formatMessage } from "@/utils/helper";
 import { Chat } from "@/utils/types";
 import clsx from "clsx";
@@ -16,7 +17,6 @@ const Chatbot = () => {
     const [history,setHistory] = React.useState<Chat[]>([
         {role:"model",message:"Hello this is Zach Estrella. Ask your inquiries here regarding my portfolio."}
     ]);
-    const [isPending,startTransition] = React.useTransition();
     const bottomRef = React.useRef<HTMLDivElement|null>(null);
     const {
         reset,
@@ -24,22 +24,35 @@ const Chatbot = () => {
         register,
         formState:{errors}
     } = useForm<Inputs>();
+    const [loading,setLoading] = React.useState<boolean>(false);
+    const [error,setError] = React.useState<boolean>(false);
     
     React.useEffect(() => {
         bottomRef.current?.scrollIntoView({
             behavior: "smooth"
         });
-    },[history,isPending]);
+    },[history,loading]);
 
-    const onSubmit:SubmitHandler<Inputs> = (data) => {
+    const onSubmit:SubmitHandler<Inputs> = async(data) => {
         reset();
         const newMessage = formatMessage({role:"user",message:data.message});
         setHistory(prev=>[...prev,newMessage]);
-        startTransition(async()=>{
-            await new Promise(resolve=>setTimeout(resolve,1000));
-            const modelMessage = formatMessage({role:"model",message:"This feature is currently under construction."});
+        try {
+            setLoading(true);
+            const response = await fetch("/api/google",{
+                method:"POST",
+                body:JSON.stringify(data.message)
+            });
+            if (!response.ok) setError(true);
+            const result = await response.json();
+            const modelMessage = formatMessage({role:"model",message:result.message});
             setHistory(prev=>[...prev,modelMessage]);
-        });
+        } catch (error) {
+            console.error(error);
+            setError(true);
+        } finally {
+            setLoading(false);
+        }
     }
 
     const handleKeyDown = (e:React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -55,34 +68,55 @@ const Chatbot = () => {
             <MessageCircleMore />
             {isOpen && (
                 <div onClick={(e)=>e.stopPropagation()}
-                    className="absolute bottom-13 right-2 bg-white dark:bg-[#212121] border border-gray-300 dark:border-[#212121] rounded-lg 
-                            w-96 h-96 text-black dark:text-white px-4 pt-6 pb-4 cursor-default">
+                    className="absolute bottom-12 right-2 bg-white dark:bg-[#212121] border border-gray-300 dark:border-[#212121] rounded-lg 
+                            w-96 h-[500px] text-black dark:text-white px-4 pt-6 pb-4 cursor-default">
                     <div onClick={()=>setIsOpen(false)} className="absolute top-2 right-2">
-                            <CircleX className="text-red-500 cursor-pointer" size={18}/>
+                            <CircleX className="text-black dark:text-white cursor-pointer" size={18}/>
                     </div>
+                    {error ? (
+                        <div className="h-full flex flex-col justify-center items-center text-gray-500 text-sm">
+                            Something went wrong ...
+                        </div>
+                    ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col gap-2">
-                        <div className="flex flex-col gap-2 overflow-y-auto">
-                            {history.map((chat,index)=>(
-                                <div key={index} className="w-full">
-                                <div className={clsx("max-w-4/5 border rounded-lg text-xs p-2",
-                                            chat.role == "model" ? "border-gray-300 float-left text-left"
-                                                                : "border-info bg-info float-right text-right text-white"
-                                        )}>
+                        <div className="flex-1 flex flex-col gap-2 overflow-y-auto">
+                            {history.map((chat, index) => (
+                                <div
+                                    key={index}
+                                    className={clsx(
+                                        "flex w-full",
+                                        chat.role === "model"
+                                            ? "justify-start"
+                                            : "justify-end"
+                                    )}
+                                >
+                                    <div
+                                        className={clsx(
+                                            "max-w-[80%] border rounded-lg text-xs p-2",
+                                            chat.role === "model"
+                                                ? "border-gray-300 text-left"
+                                                : "border-info bg-info text-right text-white"
+                                        )}
+                                    >
                                         {chat.message}
                                     </div>
                                 </div>
                             ))}
-                            {isPending && <Comment
-                                visible={true}
-                                height="28"
-                                width="28"
-                                ariaLabel="comment-loading"
-                                wrapperStyle={{}}
-                                wrapperClass="comment-wrapper"
-                                color="black"
-                                backgroundColor="#e1e1e1"
-                            />}
-                            <div ref={bottomRef}/>
+
+                            {loading && (
+                                <div className="flex justify-start">
+                                    <Comment
+                                        visible={true}
+                                        height="28"
+                                        width="28"
+                                        ariaLabel="comment-loading"
+                                        color="black"
+                                        backgroundColor="#e1e1e1"
+                                    />
+                                </div>
+                            )}
+
+                            <div ref={bottomRef} />
                         </div>
                         <div className="mt-auto">
                             <textarea {...register("message", {required:"A message is required"})} onKeyDown={handleKeyDown}
@@ -95,8 +129,10 @@ const Chatbot = () => {
                             </button>
                         </div>
                     </form>
-
-                    <p className="absolute bottom-1 left-24 text-gray-500 text-[10px]">AI-powered chatbot through Google Gemini</p>
+                    )}
+                    {!error && (
+                        <p className="absolute bottom-1 left-24 text-gray-500 text-[10px]">AI-powered chatbot through Google Gemini</p>
+                    )}
                 </div>
             )}
 

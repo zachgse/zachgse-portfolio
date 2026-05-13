@@ -5,8 +5,8 @@ function route (query:string) {
         return "project"
     } 
 
-    if (query.includes("skill") || query.includes("tech stack") || 
-        query.includes("technologies") || query.includes("work")) {
+    if (query.includes("skill") || query.includes("tech stack") || query.includes("technologies") || 
+        query.includes("work") || query.includes("experience")){
         return "experience"
     }
 
@@ -31,15 +31,27 @@ function cosineSimilarity(a: number[], b: number[]) {
     return dotProduct / (magnitudeA * magnitudeB);
 }
 
-function generateAugmentedRetrieval(){ 
-    const type = route("what are your projects?");
-    const embeddedValue = [0,1,2]
+export function generateAugmentedRetrieval(userInput:string,userEmbedding:number[]){ 
+    const type = route(userInput);
     const typeChunk = data.filter(
         d => d.type === type
     );
     const formattedChunks = typeChunk.map(d => ({
         text: d.text,
-        score: cosineSimilarity(embeddedValue,d.embeddings ?? [1,2,3])
-    }));
-    return formattedChunks.sort((a,b) => b.score - a.score);
+        score: cosineSimilarity(userEmbedding,d.embeddings)
+    })).sort((a,b) => b.score - a.score);
+    const retrievedContext = formattedChunks.map((chunk,index) => {
+        return `[${index+1}] Score: ${chunk.score.toFixed(4)}
+${chunk.text}
+        `
+    });
+
+    return `
+User Question: 
+${userInput}
+
+
+Retrieved Context: 
+${retrievedContext}
+    `;
 }
