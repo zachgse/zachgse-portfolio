@@ -10,10 +10,12 @@ const ProjectSingleContent = ({project}:{project:ProjectType|null}) => {
             <Link href="/project">
                 <ArrowLeft size={20}/>
             </Link>
-            <div className="flex items-center gap-2">
-                <Book size={20}/>
-                <p className="font-bold text-2xl">{project?.name}</p>
-                <div className="ms-auto flex gap-2">
+            <div className="flex md:flex-row flex-col gap-2">
+                <div className="flex items-center gap-2">
+                    <Book size={20}/>
+                    <p className="font-bold text-2xl">{project?.name}</p>
+                </div>
+                <div className="md:ms-auto flex gap-2">
                     {project?.preview_url && (
                     <a href={project.preview_url} target="_blank">
                         <Button type="primary">
