@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🌐 Personal Portfolio
 
-## Getting Started
+A modern, interactive personal portfolio built with Next.js, designed to showcase projects, skills, and experience with a focus on performance, SEO, and AI-powered features.
 
-First, run the development server:
+✨ Features
+⚡ Built with Next.js for fast, scalable full-stack performance
+🔍 SEO optimized with dynamic metadata and structured routing
+🗄️ Supabase integration for dynamic content management and backend services
+🤖 AI-powered chatbot using Google Gemini API
+🧠 RAG-inspired system with embeddings for contextual and intelligent responses
+🎨 Responsive and modern UI using Tailwind CSS + DaisyUI
+🌙 Theme support with next-themes
+📊 Smooth UI interactions with animations and utilities (typewriter, counters, loaders)
+🧠 AI Chatbot System
 
-```bash
+This portfolio includes an embedded AI assistant that:
+
+Uses Google Gemini Embeddings API
+Implements a RAG-style retrieval system
+Performs semantic search using cosine similarity
+Injects relevant context into prompts for accurate responses
+🛠️ Tech Stack
+Framework: Next.js
+Frontend: React, Tailwind CSS, DaisyUI
+Backend / BaaS: Supabase
+AI: Google Gemini (@google/genai)
+State/Data: SWR
+Forms: React Hook Form
+UI Enhancements: lucide-react, react-icons, react-loader-spinner
+🚀 Getting Started
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Build for production
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Start production server
+npm run start
+📌 Purpose
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project was built to demonstrate:
 
-## Learn More
+Full-stack development skills using Next.js
+Real-world integration of AI (LLMs + embeddings + retrieval systems)
+SEO-focused modern web architecture
+Backend-as-a-Service (Supabase) implementation
+🤖 AI Note
 
-To learn more about Next.js, take a look at the following resources:
+The chatbot is powered by a RAG-inspired pipeline, combining:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Embedding-based semantic search
+Context retrieval
+Prompt engineering with Google Gemini
+📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is for personal portfolio use.
