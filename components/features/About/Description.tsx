@@ -13,13 +13,16 @@ const Description = () => {
                 <p className="font-bold text-2xl">About</p>
             </div>
             <p className={clsx(!expanded && "lg:line-clamp-3 line-clamp-6")}>
-                Full-Stack Web Developer with 3 years of professional experience specializing in backend development using PHP (Laravel). I build secure, scalable systems with a strong emphasis on clean architecture, efficient data flow, and performance optimization.
-                <br/>
-                Experienced in designing and integrating RESTful APIs, as well as working with SQL databases through optimized queries, indexing, and structured data modeling. I also have exposure to NoSQL solutions such as MongoDB for flexible data handling.
-                <br/>
-                Beyond my core backend expertise, I’ve expanded into modern full-stack development—working with React, TypeScript, and Next.js to create responsive, type-safe frontend applications. I’ve also explored backend performance strategies, including caching with Redis and rate limiting, to improve system reliability at scale.
-                <br/>
-                I’m driven by a deep interest in system design, backend fundamentals, and building maintainable applications that perform efficiently in real-world environments.
+                I’m a Full-Stack Web Developer with 3 years of professional experience, specializing in backend development using PHP (Laravel). 
+                I build secure, scalable, and maintainable systems with a strong focus on clean architecture, efficient data flow, 
+                and performance optimization. My experience includes designing and integrating RESTful APIs, optimizing SQL 
+                databases through indexing and query tuning, and applying structured data modeling for reliable backend systems. 
+                I also have exposure to NoSQL solutions such as MongoDB for flexible and unstructured data use cases. 
+                On the frontend, I work with React, TypeScript, and Next.js to build responsive, type-safe applications 
+                with modern UI patterns. I’ve implemented performance strategies such as caching with Redis, rate limiting, 
+                and background processing to improve system reliability and scalability. Recently, I’ve also been exploring AI-powered applications 
+                and system design principles, with a growing interest in architecture patterns that support scalable, intelligent, and 
+                production-ready software systems.
             </p>
             <div onClick={() => setExpanded(prev=>!prev)}
                 className="text-center text-info cursor-pointer hover:underline text-sm">
