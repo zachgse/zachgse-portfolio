@@ -40,7 +40,7 @@ const AchievementContent = () => {
     const to = (page * PER_PAGE) - 1;
     const { data:certCount,isLoading:isCertCountLoading } = useSWR("certifications",fetchCertCount);
     const { data: achievements, isLoading: isCertLoading } = useSWR(
-        [`certificate?page=${page}`, from, to],
+        ["certificate", from, to],
         fetchCertificates
     );
     

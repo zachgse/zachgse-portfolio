@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Card from "@/components/reusable/Card";
 import AchievementContent from "@/components/features/Achievement/AchievementContent";
+import AchievementSkeleton from "@/components/skeleton/AchievementSkeleton";
 
 export const metadata: Metadata = {
     title: "Zach Estrella | Achievements",
@@ -11,7 +13,9 @@ const Achievement = () => {
     
     return (
         <Card className="h-full">
-            <AchievementContent/>
+            <Suspense fallback={<AchievementSkeleton/>}>
+                <AchievementContent/>
+            </Suspense>
         </Card>
     )
 }
